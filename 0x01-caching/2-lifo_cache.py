@@ -11,7 +11,12 @@ class LIFOCache(BaseCaching):
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """Add an item in the cache"""
+        """Add an item in the cache
+            Notes:
+            If key or item is None, this method does nothing.
+            If the number of items in self.cache_data exceeds BaseCaching.MAX_ITEMS,
+            the last item added to the cache is discarded (LIFO algorithm).
+        """
         if key is None or item is None:
             return
         
