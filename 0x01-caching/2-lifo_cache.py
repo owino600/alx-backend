@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+""" BaseCaching module
+"""
 from base_caching import BaseCaching
 from collections import OrderedDict
 class LIFOCache(BaseCaching):
@@ -12,7 +14,7 @@ class LIFOCache(BaseCaching):
         """Add an item in the cache"""
         if key is None or item is None:
             return
-
+        
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             discard_key, _ = self.cache_data.popitem(last=True)
             print(f"DISCARD: {discard_key}")
