@@ -3,7 +3,6 @@ import csv
 import math
 from typing import List
 
-
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -32,10 +31,9 @@ class Server:
             page_size (int): The number of items per page (default is 10).
 
         Returns:
-            List[List]: The list of rows corresponding
-            to the requested page.
+            List[List]: The list of rows corresponding to the requested page.
         """
-        assert isinstance(page, int) and page > 0,
+        assert isinstance(page, int) and page > 0, "Page must be a positive integer."
         assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer."
 
         dataset = self.dataset()
